@@ -1,28 +1,44 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import TimeSeriesChart from './components/TimeSeriesChart';
+import SparklineChart from './components/SparklineChart';
+import ColumnChart from './components/ColumnChart';
 import DateRangePicker from './components/DateRangePicker';
-import bookings from './data/bookings.json';
+import './styles/App.css';
+import './styles/Charts.css';
+import '../src/styles.css';
 
 const App = () => {
-  const [filteredData, setFilteredData] = useState(bookings);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-  const handleDateChange = (start, end) => {
-    const filtered = bookings.filter(booking => {
-      const bookingDate = new Date(
-        booking.arrival_date_year,
-        booking.arrival_date_month - 1,
-        booking.arrival_date_day_of_month
-      );
-      return bookingDate >= start && bookingDate <= end;
-    });
+  useEffect(() => {
+    fetch('/data/bookings.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setFilteredData(data); // Initialize with full data
+      });
+  }, []);
+
+  const handleDateChange = (filtered) => {
     setFilteredData(filtered);
   };
 
   return (
-    <div>
-      <h1>Hotel Bookings Dashboard</h1>
-      <DateRangePicker onDateChange={handleDateChange} />
-      {/* Add Charts here */}
+    <div className="container">
+      <h1>Hotel Booking Dashboard</h1>
+      <div className="dashboard">
+        <DateRangePicker data={data} onDateChange={handleDateChange} />
+        <div className="chart-container">
+          <TimeSeriesChart data={filteredData} />
+        </div>
+        <div className="chart-container">
+          <SparklineChart data={filteredData} />
+        </div>
+        <div className="chart-container">
+          <ColumnChart data={filteredData} />
+        </div>
+      </div>
     </div>
   );
 };

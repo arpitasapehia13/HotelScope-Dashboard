@@ -1,0 +1,74 @@
+
+
+body {
+    background-color: #121212;
+    color: #ffffff; /* Changed to white for better contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h4 {
+    color: #b9b1b1;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling for Charts */
+.chart-container {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgb(0, 0, 0);
+}
+
+.apexcharts-legend text,
+.apexcharts-tooltip {
+    color: #000000 ;
+}
+
+.apexcharts-xaxis-label, .apexcharts-yaxis-label {
+    color: #ffffff !important; 
+}
+
+/* Dark theme for datepicker (if using in the future) */
+.react-datepicker__header {
+    background-color: #717171;
+    border-bottom: 1px solid hsl(0, 1%, 57%);
+}
+
+.react-datepicker__day, .react-datepicker__day-name {
+    color: #000000; /* Changed to white for better contrast */
+}
+
+.react-datepicker__day--selected {
+    background-color: #0aa512;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+/* Buttons */
+button {
+    background-color: #83dd9e;
+    color: #000000; /* Changed to black for better contrast */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #00b31b;
+}
