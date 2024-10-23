@@ -1,4 +1,4 @@
-# Waterdip AI Front End Assignment
+# HotelScope-Dashboard
 
 A React-based interactive dashboard that visualizes hotel booking data through various chart types, including Time Series, Sparklines, and Column charts. This project aims to provide insights into hotel booking trends over time, allowing users to filter data by date range.
 
@@ -32,7 +32,7 @@ Make sure you have the following installed:
 
 ### Installation
 1. Clone the repository:
-   git clone https://github.com/yourusername/Waterdip-AI-FrontEnd-Assignment.git
+   git clone https://github.com/yourusername/HotelScope-Dashboard
    
 2.Navigate to the project directory:
   cd Waterdip-AI-FrontEnd-Assignment
